@@ -10,7 +10,7 @@ const User = db.define("user", {
     passwordhash: {
         type: DataTypes.STRING,
         allowNull: false,
-    },
+    }
 });
 
 module.exports = User;

@@ -5,6 +5,7 @@ const dbConnection = require("./db");
 const controllers = require("./controllers");
 
 app.use("/log", controllers.logController); 
+app.use("/user", controllers.userController);
 
 dbConnection.authenticate()
     .then(() => dbConnection.sync())

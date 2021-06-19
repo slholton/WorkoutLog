@@ -1,6 +1,6 @@
 const UserModel = require("./user");
 
 module.exports = { 
-    UserModel,
-    LogModel
+    UserModel
+    // LogModel
 };
