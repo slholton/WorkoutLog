@@ -19,3 +19,7 @@
 ## Successful Login TEST
 
 <img src = ./assets/successfullogin.PNG>
+
+## Updated code to add JWT to User Login
+
+<img src = ./assets/userLoginJWT.PNG>
