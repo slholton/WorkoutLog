@@ -15,3 +15,7 @@
 ## Return the response as JSON data
 
 <img src = ./assets/jsonResponse.PNG>
+
+## Successful Login TEST
+
+<img src = ./assets/successfullogin.PNG>

@@ -28,13 +28,30 @@ router.post("/register", async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-    let { email, passwordhash } = req.body.user;
+    let { username, passwordhash } = req.body.user;
 
-    await UserModel.findOne({
+    try {
+        const loginUser = await UserModel.findOne({
         where: {
             username: username,
         },
     });
+
+    if (loginUser) {
+    res.status(200).json({
+        user: loginUser,
+        message: "User successfully logged in!"
+    });
+    } else {
+        res.status(401).json({
+            message: "Login failed"
+        });
+        }
+    } catch (error) {
+        res.status(500).json({
+            message: "Failed to log user in"
+        })
+    }
 });
 
 module.exports = router;
