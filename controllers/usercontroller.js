@@ -27,4 +27,14 @@ router.post("/register", async (req, res) => {
     }
 });
 
+router.post("/login", async (req, res) => {
+    let { email, passwordhash } = req.body.user;
+
+    await UserModel.findOne({
+        where: {
+            username: username,
+        },
+    });
+});
+
 module.exports = router;
