@@ -2,13 +2,14 @@ const router = require('express').Router();
 const { UserModel } = require("../models");
 const { UniqueConstraintError } = require("sequelize/lib/errors");
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
 
 router.post("/register", async (req, res) => {
     let { username, passwordhash } = req.body.user;
     try {
     const User = await UserModel.create({
         username, 
-        passwordhash
+        passwordhash: bcrypt.hashSync(passwordhash, 17)
     });
 
     let token = jwt.sign({id: User.id}, process.env.JWT_SECRET, {expiresIn: 60 * 60 * 24});
@@ -43,6 +44,10 @@ router.post("/login", async (req, res) => {
 
     if (loginUser) {
 
+        let passwordComparison = await bcrypt.compare(passwordhash, loginUser.passwordhash);
+
+        if (passwordComparison) {
+        
         let token = jwt.sign({id: loginUser.id}, process.env.JWT_SECRET, {expiresIn: 60 * 60 * 24});
 
     res.status(200).json({
@@ -52,7 +57,13 @@ router.post("/login", async (req, res) => {
     });
     } else {
         res.status(401).json({
-            message: "Login failed"
+            message: "Incorrect email or password"
+        })
+        }
+    
+    } else {
+        res.status(401).json({
+            message: "Incorrect email or password"
         });
         }
     } catch (error) {

@@ -23,3 +23,7 @@
 ## Updated code to add JWT to User Login
 
 <img src = ./assets/userLoginJWT.PNG>
+
+## Tested New User Login with BCRYPT
+
+<img src = ./assets/bcrypt.PNG>
