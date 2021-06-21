@@ -27,3 +27,11 @@
 ## Tested New User Login with BCRYPT
 
 <img src = ./assets/bcrypt.PNG>
+
+## POST test with new LogEntry
+
+<img src = ./assets/POST_test.PNG>
+
+## GET test to collect all Logs
+
+<img src = ./assets/GETall_test.PNG>
