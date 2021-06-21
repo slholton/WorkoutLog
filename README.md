@@ -35,3 +35,7 @@
 ## GET test to collect all Logs
 
 <img src = ./assets/GETall_test.PNG>
+
+## Dynamic GET request by owner_id
+
+<img src = ./assets/getbyid_test.PNG>
