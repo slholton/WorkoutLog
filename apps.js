@@ -12,7 +12,6 @@ app.use("/user", controllers.userController);
 // app.use(require("./middleware/validate-jwt"));
 app.use("/log", controllers.logController); 
 
-
 dbConnection.authenticate()
     .then(() => dbConnection.sync())
     .then(() => {
